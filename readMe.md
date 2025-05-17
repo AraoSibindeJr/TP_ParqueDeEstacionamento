@@ -12,7 +12,7 @@ Este sistema simula a gestão de um parque de estacionamento, permitindo:
 - Listar veículos atualmente estacionados
 - Respeitar a capacidade máxima do parque
 
-O projeto foi desenvolvido por três integrantes como forma de aplicar os conceitos de POO em Java.
+O projeto foi desenvolvido por Quatro integrantes como forma de aplicar os conceitos de POO em Java.
 
 ---
 
