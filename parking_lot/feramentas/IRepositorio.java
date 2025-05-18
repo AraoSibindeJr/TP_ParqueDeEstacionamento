@@ -4,7 +4,7 @@ public interface IRepositorio{
 
     void salvarNoArquivo(Object object) throws IOException;
     void LerArquivo();
-    void ListarArquivo();
+    Object ListarArquivo();
     void ApagarDoArquivo();
     void PesquisarPorID();
 }

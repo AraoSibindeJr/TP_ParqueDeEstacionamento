@@ -19,7 +19,7 @@ public class VeiculoRepositorio implements IRepositorio{
     }
 
     @Override
-    public void ListarArquivo() {
+    public List<Object obj> ListarArquivo() {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'ListarArquivo'");
     }
