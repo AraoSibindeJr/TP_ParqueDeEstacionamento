@@ -1,6 +1,7 @@
 package parking_lot.entidades;
 
 import java.util.ArrayList;
+import java.util.Optional;
 
 public class Park {
     private int id;
@@ -26,9 +27,47 @@ public class Park {
             vagasOcupadas++;
             return true;
         }else {
-            System.out.println(" Parque Cheio, Nao e Possivel adicionar veiculo");
+            msg01();
             return false;
         }
+    }
+
+    // Metodo para remover um veiculo
+    public boolean removerVeiculo(int id){
+        if(veiculos.remove(Optional.of(id))){
+            vagasOcupadas--;
+            return true;
+        }else {
+            msg02();
+            return false;
+        }
+    }
+
+    // verificar vagas livres
+    public int getVagasLivres(){
+        return totVagas - vagasOcupadas;
+    }
+
+    // Calcular receita: Metodo por desenvolver
+    // Parametros: Tempo de parqueamento; valor por hora.
+
+    // ver quantidade de carros no parque
+    public int getTotVeiculos(){
+        return veiculos.size();
+    }
+
+    // ver quantas vagas foram ocupadas
+    public int getVagasOcupadas(){
+        return vagasOcupadas;
+    }
+
+
+    // Mesagens
+    void msg01(){
+        System.out.println(" Parque cheio, nao e possivel adicionar o veiculo");
+    }
+    void msg02(){
+        System.out.println(" Veiculo nao encontrado.");
     }
 
 }
