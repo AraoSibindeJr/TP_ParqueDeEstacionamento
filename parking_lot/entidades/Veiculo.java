@@ -23,10 +23,13 @@ public class Veiculo {
                 + ", tipo: " + tipo + "]";
     }
 
-
+    public String veiculoDTO(){
+        return id + "," + marca + "," + modelo + "," + anoFabrico
+                + "," + tipo;
+    }
     public static void main(String[] args) {
         Veiculo v = new Veiculo(1L, "Toyota", "Corolla", 1999, Tipo.CARRO);
 
-        System.out.println("\n \n"  + v.toString());
+        System.out.println("\n \n"  + v.veiculoDTO());
     }
 }

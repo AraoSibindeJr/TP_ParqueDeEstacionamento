@@ -7,25 +7,20 @@ public class VeiculoRepositorio implements IRepositorio{
     @Override
     public void salvarNoArquivo(Object object) throws IOException {
         String fileName = "veiculos-salvos.txt";
+        StringTokenizer st = new StringTokenizer();
+
 
         FileWriter fr = new FileWriter(object.toString());
         
     }
 
     @Override
-    public void LerArquivo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'LerArquivo'");
-    }
-
-    @Override
     public List<Object obj> ListarArquivo() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'ListarArquivo'");
+       return null;
     }
 
     @Override
-    public void ApagarDoArquivo() {
+    public void ApagarDoArquivo(Long id) {
         // TODO Auto-generated method stub
         throw new UnsupportedOperationException("Unimplemented method 'ApagarDoArquivo'");
     }
@@ -36,4 +31,7 @@ public class VeiculoRepositorio implements IRepositorio{
         throw new UnsupportedOperationException("Unimplemented method 'PesquisarPorID'");
     }
     
+    public Veiculo fileToObject(){
+        StringTokenizer
+    }
 }
