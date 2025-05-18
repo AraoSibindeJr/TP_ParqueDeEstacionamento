@@ -37,10 +37,9 @@ gestor-estacionamento/
 │   └── ...
 ├── README.md
 └── .gitignore
-
 ````
 
----
+
 
 
 ## 👥 Contribuidores
@@ -51,13 +50,12 @@ gestor-estacionamento/
 | Armando Macamo      | [@Liedso635](https://github.com/Liedso635)         |
 | Iben Mapapa         | [@Ibenneby](https://github.com/ibenneby)           |
 | Martin Langa        | [@MartinLanga](https://github.com/elverolanga)     |
----
 
 ## 📝 Licença
 
 Este projeto é apenas para fins educacionais.
 Não possui fins comerciais.
 
----
+
 
 
