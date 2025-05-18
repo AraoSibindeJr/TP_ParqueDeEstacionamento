@@ -32,6 +32,6 @@ public class VeiculoRepositorio implements IRepositorio{
     }
     
     public Veiculo fileToObject(){
-        StringTokenizer
+        StringTokenizer st = new StringTokenizer();
     }
 }
