@@ -23,7 +23,7 @@ public class VeiculoRepositorio{
 
         while(data != -1){
 
-            Veiculo v = new Veiculo();
+
         }
 
         return veiculos;
