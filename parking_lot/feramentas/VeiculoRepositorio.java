@@ -1,37 +1,41 @@
+package parking_lot.feramentas;
 
+import parking_lot.entidades.Veiculo;
+
+import java.io.FileReader;
+import java.util.*;
 import java.io.FileWriter;
 import java.io.IOException;
 
-public class VeiculoRepositorio implements IRepositorio{
-
-    @Override
-    public void salvarNoArquivo(Object object) throws IOException {
-        String fileName = "veiculos-salvos.txt";
-        StringTokenizer st = new StringTokenizer();
+public class VeiculoRepositorio{
 
 
-        FileWriter fr = new FileWriter(object.toString());
-        
+    public void salvarNoArquivo(Veiculo veiculo) throws IOException {
+        FileWriter writer = new FileWriter("veiculos.txt");
+        writer.write(veiculo.veiculoDTO() + "\n");
     }
 
-    @Override
-    public List<Object obj> ListarArquivo() {
-       return null;
+    public List<Veiculo> ListarArquivo() throws IOException{
+        StringTokenizer st = new StringTokenizer(";");
+        FileReader fr = new FileReader("veiculos.txt");
+        List<Veiculo> veiculos = new ArrayList<>();
+        int data = fr.read();
+
+        while(data != -1){
+
+            Veiculo v = new Veiculo();
+        }
+
+        return veiculos;
     }
 
-    @Override
+
     public void ApagarDoArquivo(Long id) {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'ApagarDoArquivo'");
+
     }
 
-    @Override
+    @
     public void PesquisarPorID() {
-        // TODO Auto-generated method stub
-        throw new UnsupportedOperationException("Unimplemented method 'PesquisarPorID'");
-    }
-    
-    public Veiculo fileToObject(){
-        StringTokenizer st = new StringTokenizer();
+
     }
 }
