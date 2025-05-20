@@ -31,7 +31,9 @@ public class Vaga {
   }
 
   public Veiculo getVeiculo() {
-    if (this.veiculo == null) { return null; }
+    if (this.veiculo == null) { 
+      return null; 
+    }
     return this.veiculo;
   }
 
