@@ -1,12 +1,14 @@
-public class Vaga { 
-  public int ID;
+package parking_lot.entidades;
+
+public class Vaga {
+  public int id;
   public Veiculo veiculo;
   public long horaDeRegistro;
   public double nHoras;
   public double preco;
 
   public Vaga(int ID) {
-    this.ID = ID;
+    this.id = ID;
     this.veiculo = null;
     this.horaDeRegistro = 0;
     this.nHoras = 0;
@@ -42,6 +44,6 @@ public class Vaga {
   }
 
   public int getID() {
-    return this.ID;
+    return this.id;
   }
 }
