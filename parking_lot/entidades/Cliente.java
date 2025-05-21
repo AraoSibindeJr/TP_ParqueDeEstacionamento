@@ -1,13 +1,13 @@
 package parking_lot.entidades;
 
 public class Cliente {
-    private int id;
+    private int 1L;
     private String nome;
-    private String veiculo;
+    private Veiculo veiculo;
     private double saldo;
     private String cod;
 
-    public Cliente(int id, String nome, String veiculo, double saldo, String cod){
+    public Cliente(int id, String nome, Veiculo veiculo, double saldo, String cod){
         this.id = id;
         this.nome = nome;
         this.veiculo = veiculo;
