@@ -1,13 +1,13 @@
 package parking_lot.entidades;
 
 public class Cliente {
-    private int 1L;
+    private Long id;
     private String nome;
     private Veiculo veiculo;
     private double saldo;
     private String cod;
 
-    public Cliente(int id, String nome, Veiculo veiculo, double saldo, String cod){
+    public Cliente(Long id, String nome, Veiculo veiculo, double saldo, String cod){
         this.id = id;
         this.nome = nome;
         this.veiculo = veiculo;
@@ -20,12 +20,12 @@ public class Cliente {
         this.saldo = saldo;
     }
 
-    public void setVeiculo(String veiculo) {
+    public void setVeiculo(Veiculo veiculo) {
         this.veiculo = veiculo;
     }
     // estes dois sets criei pq acho que esses atributos podem ser alterados ao londo do codigo
 
-    public int getId() {
+    public Long getId() {
         return id;
     }
 
@@ -33,7 +33,7 @@ public class Cliente {
         return nome;
     }
 
-    public String getVeiculo(){
+    public Veiculo getVeiculo(){
         return veiculo;
     }
 
