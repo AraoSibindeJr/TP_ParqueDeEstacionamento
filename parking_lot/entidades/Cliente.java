@@ -14,6 +14,13 @@ public class Cliente {
         this.saldo = saldo;
     }
 
+    public Cliente(Long id, String nome, Veiculo veiculo, double saldo){
+        this.id = id;
+        this.nome = nome;
+        this.veiculo = veiculo;
+        this.saldo = saldo;
+    }
+
     public void setSaldo(double saldo) {
         this.saldo = saldo;
     }

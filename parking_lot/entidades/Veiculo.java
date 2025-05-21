@@ -6,11 +6,18 @@ public class Veiculo {
     private String marca;
     private String modelo;
     private int anoFabrico;
-    private Tipo tipo;
+    private String tipo;
     static Long idG = 0L;
 
-    public Veiculo( String marca, String modelo, int anoF, Tipo tipo){
+    public Veiculo(String marca, String modelo, int anoF, String tipo){
         this.id = this.idG + 1;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.anoFabrico = anoF;
+        this.tipo = tipo;
+    }
+    public Veiculo(Long id, String marca, String modelo, int anoF, String tipo){
+        this.id = id;
         this.marca = marca;
         this.modelo = modelo;
         this.anoFabrico = anoF;

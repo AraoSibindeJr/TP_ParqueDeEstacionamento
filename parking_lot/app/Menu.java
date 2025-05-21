@@ -37,7 +37,7 @@ public class Menu {
         System.out.println("Ano de Fabrico do veiculo");
         int anoF = Integer.parseInt(sc.nextLine());
         System.out.println("Tipo de veiculo");
-        Tipo t = null;
+        String t = null;
         System.out.println("""
                 1.MOTORIZADA,
                 2.BICICLETA,
