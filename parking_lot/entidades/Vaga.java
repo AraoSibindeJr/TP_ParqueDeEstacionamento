@@ -1,49 +1,58 @@
 package parking_lot.entidades;
 
+import parking_lot.feramentas.Repositorio;
+
 public class Vaga {
-  public int id;
-  public Veiculo veiculo;
+  public Long id;
+  public Cliente  cliente;
   public long horaDeRegistro;
   public double nHoras;
   public double preco;
+  public double precoBase;
+  static Long IDG = 0L;
 
-  public Vaga(int ID) {
-    this.id = ID;
-    this.veiculo = null;
-    this.horaDeRegistro = 0;
-    this.nHoras = 0;
+  @Override
+  public String toString() {
+    return "Vaga{" +
+            "id=" + id +
+            ", cliente=" + cliente +
+            ", horaDeRegistro=" + horaDeRegistro +
+            ", nHoras=" + nHoras +
+            ", preco=" + preco +
+            ", precoBase=" + precoBase +
+            '}';
   }
 
-  public void ocupar(Veiculo veiculo) {
+  public Vaga(double precoBase) {
+    this.id = IDG + 1;
+    this.cliente = cliente;
+    this.horaDeRegistro = 0;
+    this.nHoras = 0;
+    this.precoBase = precoBase;
+  }
+
+  public void ocupar(Cliente cLiente) {
     this.nHoras = 0;
     this.preco = 0;
-    this.veiculo = veiculo;
+    this.cliente = cliente;
     this.horaDeRegistro = System.currentTimeMillis();
   }
 
-  public void desocupar(double precoBase) {
-    this.nHoras = (double)(this.horaDeRegistro - System.currentTimeMillis()) / 3600000.0;
-    this.veiculo = null;
-    this.horaDeRegistro = 0;
-    this.preco = this.nHoras * precoBase;
+  public void desocupar(Long id) {
+    if((boolean) Repositorio.pesquisarClientePorId(id).elementAt(0)) {
+      this.nHoras = (System.currentTimeMillis() - this.horaDeRegistro) / 3600000.0;
+      this.cliente = null;
+      this.horaDeRegistro = 0;
+      this.preco = this.nHoras * precoBase;
+      System.out.println("Vaga desocupada com sucesso, adeus cliente: " +  Repositorio.pesquisarClientePorId(id).elementAt(1));
+    }
   }
 
   public boolean estaDisponivel() {
-    return this.veiculo == null;
-  }
-
-  public Veiculo getVeiculo() {
-    if (this.veiculo == null) { 
-      return null; 
+    if(this.cliente != null) {
+      return true;
     }
-    return this.veiculo;
+    return false;
   }
 
-  public double getPreco() {
-    return this.preco;
-  }
-
-  public int getID() {
-    return this.id;
-  }
 }
