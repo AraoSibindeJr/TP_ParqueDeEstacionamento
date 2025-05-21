@@ -5,15 +5,13 @@ public class Cliente {
     private String nome;
     private Veiculo veiculo;
     private double saldo;
-    private String cod;
+    static Long idG = 0L;
 
-    public Cliente(Long id, String nome, Veiculo veiculo, double saldo, String cod){
-        this.id = id;
+    public Cliente( String nome, Veiculo veiculo, double saldo){
+        this.id = this.idG + 1;
         this.nome = nome;
         this.veiculo = veiculo;
         this.saldo = saldo;
-        this.cod = cod;
-
     }
 
     public void setSaldo(double saldo) {
@@ -37,10 +35,6 @@ public class Cliente {
         return veiculo;
     }
 
-
-    public String getCod() {
-        return cod;
-    }
 
     public void aumentarSaldo(double valor) {
         this.saldo += valor;
@@ -75,9 +69,8 @@ public class Cliente {
     public String toString() {
         return "ID: " + id + "\n" +
                 "Nome: " + nome + "\n" +
-                "Código: " + cod + "\n" +
                 "Saldo: " + saldo + "\n" +
-                "Veículo: " + (veiculo != null ? veiculo : "Nenhum");
+                "Veículo: " + (veiculo != null ? veiculo.toString() : "Nenhum");
     }
     // isto aqui "veiculo != null ? veiculo : "Nenhum" vi no chat, dps vao dizer oq preferem
 
