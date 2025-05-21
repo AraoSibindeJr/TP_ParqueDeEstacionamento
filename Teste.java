@@ -1,3 +1,5 @@
+import parking_lot.entidades.Cliente;
+
 public class Teste {
     public static void main(String[] args) {
 
