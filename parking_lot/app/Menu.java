@@ -1,7 +1,6 @@
 package parking_lot.app;
 
 import parking_lot.entidades.Cliente;
-import parking_lot.entidades.Tipo;
 import parking_lot.entidades.Veiculo;
 
 import java.util.Scanner;
@@ -47,11 +46,11 @@ public class Menu {
                 """);
         int opp = Integer.parseInt(sc.nextLine());
         switch (opp){
-            case 1 -> t = Tipo.MOTORIZADA;
-            case 2 -> t = Tipo.BICICLETA;
-            case 3 -> t = Tipo.CARRO;
-            case 4 -> t = Tipo.CAMIAO;
-            case 5 -> t = Tipo.CAMIONETA;
+            case 1 -> t = "MOTORIZADA";
+            case 2 -> t = "BICICLETA";
+            case 3 -> t = "CARRO";
+            case 4 -> t = "CAMIAO";
+            case 5 -> t = "CAMIONETA";
             default -> System.out.println("Opção invalida.");
         }
         Veiculo v = new Veiculo(marca, modelo, anoF, t);
