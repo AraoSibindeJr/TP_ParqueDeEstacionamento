@@ -6,9 +6,17 @@ public class Veiculo {
     private String marca;
     private String modelo;
     private int anoFabrico;
-    private Tipo tipo;
+    private String tipo;
+    static Long idG = 0L;
 
-    public Veiculo(Long id, String marca, String modelo, int anoF, Tipo tipo){
+    public Veiculo(String marca, String modelo, int anoF, String tipo){
+        this.id = this.idG + 1;
+        this.marca = marca;
+        this.modelo = modelo;
+        this.anoFabrico = anoF;
+        this.tipo = tipo;
+    }
+    public Veiculo(Long id, String marca, String modelo, int anoF, String tipo){
         this.id = id;
         this.marca = marca;
         this.modelo = modelo;
@@ -26,10 +34,5 @@ public class Veiculo {
     public String veiculoDTO(){
         return id + "," + marca + "," + modelo + "," + anoFabrico
                 + "," + tipo;
-    }
-    public static void main(String[] args) {
-        Veiculo v = new Veiculo(1L, "Toyota", "Corolla", 1999, Tipo.CARRO);
-
-        System.out.println("\n \n"  + v.veiculoDTO());
     }
 }
