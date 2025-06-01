@@ -8,7 +8,7 @@ public class Park {
     private String nome;
     private int totVagas;
     private int vagasOcupadas;
-    private ArrayList<Integer> veiculos; // Lista das matriculas dos carros
+    private ArrayList<Integer> veiculos; // Array de Vaga
     private double receita; // A receita e calculada com base: nrHoras * Valor
 
     // Construtor
