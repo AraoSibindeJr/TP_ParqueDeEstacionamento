@@ -12,6 +12,27 @@ import java.util.Vector;
 
 public class Menu {
     public static void main(String[] args) {
+        System.out.println("""
+                1.carregar da memoria
+                2.criar do zero
+                """);
+        int opp = Integer.parseInt(sc.nextLine());
+        switch (opp){
+            case 1:{
+                Vector<Vaga> v = Repositorio.reconstruirVagasOcupadas();
+                Park p = new Park(1, "Park", v.size(), v);
+                menuPrincipal(p);
+            }
+            case 2:{
+                System.out.println("Insira o nome do Park");
+                String nome = sc.nextLine();
+
+                System.out.println("Insira o numero de vagas: ");
+                int vagas = Integer.parseInt(sc.nextLine());
+                Park pp = new Park(1, nome, vagas);
+                menuPrincipal(pp);
+            }
+        }
         System.out.println("Insira o nome do parking lot");
         String nP = new Scanner(System.in).nextLine();
 
@@ -34,7 +55,7 @@ public class Menu {
         int opp = Integer.parseInt(sc.nextLine());
         while (opp != 6){
             switch(opp){
-                case 1 -> registrarCliente();
+                case 1 -> registrarCliente(park);
                 case 2 -> deleteClientById();
                 case 3 -> listAllClients();
                 case 4 -> listAvalible(park);
@@ -119,6 +140,7 @@ public class Menu {
         Vector<Cliente> clients = new Vector<>();
         for(Cliente c : Repositorio.listarClientes()){
             clients.addElement(c);
+            System.out.println(c.toString());
         }
         return clients;
     }

@@ -1,6 +1,7 @@
 package parking_lot.feramentas;
 
 import parking_lot.entidades.Cliente;
+import parking_lot.entidades.Vaga;
 import parking_lot.entidades.Veiculo;
 
 import java.io.*;
@@ -13,13 +14,13 @@ public class Repositorio {
     }
 
     public void salvarNoArquivo(Veiculo veiculo) throws IOException {
-        FileWriter writer = new FileWriter("veiculos.txt");
+        FileWriter writer = new FileWriter("parking_lot/ficheiros/clientes.txt");
         writer.write(veiculo.veiculoDTO() + "\n");
     }
 
     public static Vector<Cliente> listarClientes() {
         Vector<Cliente> clientes = new Vector();
-        String FileName = "src/parking_lot/ficheiros/clientes.txt";
+        String FileName = "parking_lot/ficheiros/clientes.txt";
         try (BufferedReader reader = new BufferedReader(new FileReader(FileName))) {
             String linha;
             while ((linha = reader.readLine()) != null) {
@@ -69,7 +70,7 @@ public class Repositorio {
         }
 
         // Reescrevendo o arquivo sem o cliente removido
-        try (BufferedWriter bw = new BufferedWriter(new FileWriter("clientes.txt"))) {
+        try (BufferedWriter bw = new BufferedWriter(new FileWriter("parking_lot/ficheiros/clientes.txt"))) {
             for (String l : linhas) {
                 bw.write(l);
                 bw.newLine();
@@ -82,7 +83,7 @@ public class Repositorio {
 
 
     public static Vector<Object> pesquisarClientePorId(Long idProcurado) {
-        try (BufferedReader br = new BufferedReader(new FileReader("clientes.txt"))) {
+        try (BufferedReader br = new BufferedReader(new FileReader("parking_lot/ficheiros/clientes.txt"))) {
             String linha;
             Vector<Object> response = new Vector<>();
 
@@ -103,5 +104,20 @@ public class Repositorio {
         Vector fr = new Vector();
         fr.addElement(false);
         return fr; // se não encontrar o cliente
+    }
+
+    public static Vector<Vaga> reconstruirVagasOcupadas() {
+        Vector<Vaga> vagasOcupadas = new Vector<>();
+        Vector<Cliente> clientes = listarClientes();
+
+        for (Cliente cliente : clientes) {
+            double precoBase = 100.0;
+            Vaga vaga = new Vaga(precoBase);
+            vaga.cliente = cliente;
+            vaga.horaDeRegistro = System.currentTimeMillis();
+            vagasOcupadas.add(vaga);
+        }
+
+        return vagasOcupadas;
     }
 }

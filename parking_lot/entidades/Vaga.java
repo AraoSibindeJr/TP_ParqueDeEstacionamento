@@ -2,6 +2,10 @@ package parking_lot.entidades;
 
 import parking_lot.feramentas.Repositorio;
 
+import java.util.Vector;
+
+import static parking_lot.feramentas.Repositorio.listarClientes;
+
 public class Vaga {
   public Long id;
   public Cliente  cliente;
@@ -10,18 +14,6 @@ public class Vaga {
   public double preco;
   public double precoBase;
   static Long IDG = 0L;
-
-  @Override
-  public String toString() {
-    return "Vaga{" +
-            "id=" + id +
-            ", cliente=" + cliente +
-            ", horaDeRegistro=" + horaDeRegistro +
-            ", nHoras=" + nHoras +
-            ", preco=" + preco +
-            ", precoBase=" + precoBase +
-            '}';
-  }
 
   public Vaga(double precoBase) {
     this.id = IDG + 1;
@@ -53,6 +45,18 @@ public class Vaga {
       return true;
     }
     return false;
+  }
+
+  @Override
+  public String toString() {
+    return "Vaga{" +
+            "id=" + id +
+            ", cliente=" + cliente +
+            ", horaDeRegistro=" + horaDeRegistro +
+            ", nHoras=" + nHoras +
+            ", preco=" + preco +
+            ", precoBase=" + precoBase +
+            '}';
   }
 
 }

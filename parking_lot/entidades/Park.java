@@ -5,7 +5,7 @@ import java.util.Optional;
 import java.util.Scanner;
 import java.util.Vector;
 
-//classe park
+//classe
 public class Park {
     private int id;
     private String nome;
@@ -17,6 +17,20 @@ public class Park {
         this.id = id;
         this.nome = nome;
         this.vagas = new Vaga[numeroVagas];
+        this.receita = 0.0;
+    }
+
+    Vaga[] buildVagas(Vector<Vaga> v){
+        Vaga[] vv = new Vaga[v.size()];
+        for(int i = 0; i<v.size(); i++){
+            this.vagas = vv;
+        }
+        return vv;
+    }
+    public Park(int id, String nome, int numeroVagas, Vector<Vaga> v){
+        this.id = id;
+        this.nome = nome;
+        this. vagas = buildVagas(v);
         this.receita = 0.0;
     }
 
