@@ -8,7 +8,7 @@ public class Cliente {
     private static Long idG = 0L;
 
     public Cliente(String nome, Veiculo veiculo, double saldo) {
-        this.id = ++idG;
+        this.id = idG++;
         this.nome = nome;
         this.veiculo = veiculo;
         this.saldo = saldo;
@@ -39,8 +39,12 @@ public class Cliente {
         return this.saldo >= valor;
     }
 
-    public boolean temId(Long id) {
+    public boolean temId() {
         return this.id.equals(id);
+    }
+
+    public boolean temId(Long outroId) {
+        return this.id.equals(outroId); // método público de comparação
     }
 
     public boolean temNome(String nome) {

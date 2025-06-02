@@ -127,7 +127,7 @@ public class Menu {
         Long id = Long.parseLong(sc.nextLine());
         Vector<Cliente> clients = Repositorio.listarClientes();
         for(Cliente c : clients){
-            if(c.getId() == id){
+            if(c.temId(id)){
                 Repositorio.deleteById(id);
                 System.out.println("O cliente foi apagado com sucesso.\n" + c.toString());
             }else{
