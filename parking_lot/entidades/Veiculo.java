@@ -9,6 +9,7 @@ public class Veiculo {
     private String tipo;
     static Long idG = 0L;
 
+    public Veiculo(){};
     public Veiculo(String marca, String modelo, int anoF, String tipo){
         this.id = this.idG + 1;
         this.marca = marca;

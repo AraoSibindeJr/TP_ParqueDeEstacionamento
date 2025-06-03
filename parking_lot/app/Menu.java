@@ -11,6 +11,8 @@ import java.util.Scanner;
 import java.util.Vector;
 
 public class Menu {
+
+    private static final String filePath = "./parking_lot/ficheiros/clientes.txt";
     public static void main(String[] args) {
         System.out.println("""
                 1.carregar da memoria
@@ -19,7 +21,7 @@ public class Menu {
         int opp = Integer.parseInt(sc.nextLine());
         switch (opp){
             case 1:{
-                Vector<Vaga> v = Repositorio.reconstruirVagasOcupadas();
+                List<Vaga> v = Repositorio.readFromFile(filePath);
                 Park p = new Park(1, "Park", v.size(), v);
                 menuPrincipal(p);
             }
@@ -125,7 +127,7 @@ public class Menu {
     static void deleteClientById(){
         System.out.println("Digite o ID do cliente: ");
         Long id = Long.parseLong(sc.nextLine());
-        Vector<Cliente> clients = Repositorio.listarClientes();
+        Vector<Cliente> clients = Repositorio.readFromFile();
         for(Cliente c : clients){
             if(c.temId(id)){
                 Repositorio.deleteById(id);

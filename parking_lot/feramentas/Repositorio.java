@@ -9,6 +9,7 @@ import java.util.*;
 
 public class Repositorio {
 
+    /*
 
     public static void deleteById(Long id) {
     }
@@ -119,5 +120,65 @@ public class Repositorio {
         }
 
         return vagasOcupadas;
+    }
+    */
+
+    public static void writeToFIle(List<Vaga> vagas, String filePath){
+        try(BufferedWriter writer = new BufferedWriter(new FileWriter(filePath))){
+            for(Vaga vaga : vagas){
+                writer.write(
+                        vaga.toString()
+                );
+                System.out.println(vaga.toString());
+            }
+        }catch(IOException e){
+            e.printStackTrace();
+        }
+    }
+
+    public static List<Vaga> readFromFile(String filePath){
+        List<Vaga> vagas = new ArrayList<Vaga>();
+
+        try(BufferedReader reader = new BufferedReader(new FileReader(filePath))){
+            String line = "";
+
+            while((line = reader.readLine()) != null){
+                String[] parts = line.split(",");
+
+                Veiculo v = new Veiculo(Long.parseLong(parts[3]), parts[4], parts[5], Integer.parseInt(parts[6]), parts[7]);
+
+                Cliente c = new Cliente(Long.parseLong(parts[1]), parts[2], v, Double.parseDouble(parts[8]));
+
+                Vaga vv = new Vaga(Long.parseLong(parts[1]), c, Long.parseLong(parts[9]), Integer.parseInt(parts[10]), Double.parseDouble(parts[11]), Double.parseDouble(parts[12]));
+                vagas.add(vv);
+            }
+
+        } catch(IOException e){
+            e.printStackTrace();
+        }
+
+        return vagas;
+    }
+
+    public static void removeFromFile(Long id, String filePath){
+        List<Vaga> vagas = readFromFile(filePath);
+
+        for(Vaga v : vagas){
+            if(v.id == id){
+                vagas.remove(v);
+            }
+        }
+
+        writeToFIle(vagas, filePath);
+    }
+
+    public static void updateFile(Long id, String filePath){
+        List<Vaga> vagas = readFromFile(filePath);
+
+        for(Vaga v : vagas){
+            vagas.set(vagas.indexOf(v), v);
+        }
+
+        writeToFIle(vagas, filePath);
     }
 }

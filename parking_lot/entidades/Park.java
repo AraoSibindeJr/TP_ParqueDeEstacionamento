@@ -1,9 +1,6 @@
 package parking_lot.entidades;
 
-import java.util.ArrayList;
-import java.util.Optional;
-import java.util.Scanner;
-import java.util.Vector;
+import java.util.*;
 
 //classe
 public class Park {
@@ -20,7 +17,7 @@ public class Park {
         this.receita = 0.0;
     }
 
-    Vaga[] buildVagas(Vector<Vaga> v){
+    Vaga[] buildVagas(Lis<Vaga> v){
         Vaga[] vv = new Vaga[v.size()];
         for(int i = 0; i<v.size(); i++){
             this.vagas = vv;
@@ -48,8 +45,8 @@ public class Park {
        }
     }
 
-    public Vector<Vaga> listarVagasOcupadas(){
-        Vector<Vaga> vagas = new Vector<>();
+    public List<Vaga> listarVagasOcupadas(){
+        List<Vaga> vagas = new ArrayList<>();
         for(int i = 0; i < this.vagas.length ; i++){
             if(!this.vagas[i].estaDisponivel()){
                 vagas.add(this.vagas[i]);
@@ -58,8 +55,8 @@ public class Park {
         return vagas;
     }
 
-    public Vector<Vaga> listarVagasLivres(){
-        Vector<Vaga> vagas = new Vector<>();
+    public List<Vaga> listarVagasLivres(){
+        Vector<Vaga> vagas = new ArrayList<>();
         for(int i = 0; i < this.vagas.length ; i++){
             if(this.vagas[i].estaDisponivel()){
                 vagas.add(this.vagas[i]);

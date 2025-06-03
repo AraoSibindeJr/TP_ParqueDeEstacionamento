@@ -23,6 +23,15 @@ public class Vaga {
     this.precoBase = precoBase;
   }
 
+  public Vaga(Long id, Cliente cliente, long horaDeRegistro, double nHoras, double preco, double precoBase) {
+    this.id = id;
+    this.cliente = cliente;
+    this.horaDeRegistro = horaDeRegistro;
+    this.nHoras = nHoras;
+    this.preco = preco;
+    this.precoBase = precoBase;
+  }
+
   public void ocupar(Cliente cLiente) {
     this.nHoras = 0;
     this.preco = 0;
